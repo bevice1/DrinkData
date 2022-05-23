@@ -1,0 +1,130 @@
+openapi: 3.0.0
+info:
+  description: Webserver zum gscheid oan einistelln
+  version: 1.0.0
+  title: drinkdata
+  contact:
+    email: bk@kaiser-web.at
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+tags:
+  - name: Drinks
+    description: Everything about your drinks
+  - name: Profile
+    description: Operations about user profile
+  - name: User
+    description: Everything about the User for the Trip
+paths:
+  /drinks:
+    post:
+      tags:
+        - Drinks
+      summary: Add a new drink to your Profile
+      description: ""
+      operationId: addDrink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DrinkDTO"
+        description: drink object that needs to be added to the profile
+        required: true
+      responses:
+        "405":
+          description: Invalid input
+  /fetchProfile:
+    get:
+      tags:
+        - Profile
+      summary: Fetch a profile to view the drink summary
+      description: ""
+      operationId: fetchProfile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserDTO"
+        description: profile object that needs to be added to the store
+        required: true
+      responses:
+        "200":
+          description: User Profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfileDTO"
+        "405":
+          description: Invalid input
+  /getUsers:
+    get:
+      tags:
+        - User
+      summary: "Fetch all Users "
+      description: ""
+      operationId: fetchUsers
+      responses:
+        "200":
+          description: User Profiles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserDTO"
+        "405":
+          description: Invalid input
+  /postUser:
+    post:
+      tags:
+        - User
+      summary: Add a new User
+      description: ""
+      operationId: addUser
+      responses:
+        "200":
+          description: User Profiles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserDTO"
+        "405":
+          description: Invalid input
+servers:
+  - url: https://kaiser-web.at/drinkdata
+  - url: http://kaiser-web.at/drinkdata
+components:
+  schemas:
+    DrinkDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        drink:
+          type: string
+        amount:
+          type: number
+        timestamp:
+          type: string
+      xml:
+        name: DrinkDTO
+    ProfileDTO:
+      type: object
+      properties:
+        name:
+          $ref: "#/components/schemas/UserDTO"
+        drinks:
+          type: array
+          items:
+            $ref: "#/components/schemas/DrinkDTO"
+    UserDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: number
+      xml:
+        name: ProfileDTO

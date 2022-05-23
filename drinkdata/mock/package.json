@@ -1,0 +1,19 @@
+{
+  "name": "drinkdata",
+  "version": "1.0.0",
+  "description": "gscheid oan eini stelln",
+  "scripts": {
+    "mocks": "mocks-server",
+    "openapigen": "index.js"
+  },
+  "author": "bk",
+  "license": "ISC",
+  "dependencies": {
+    "@mocks-server/main": "^2.6.0",
+    "json-colorizer" :"^2.2.2",
+    "mocks": "^0.0.15",
+    "multiparty": "^4.2.2",
+    "useragent": "^2.3.0",
+    "uuid": "^8.3.2"
+  }
+}
