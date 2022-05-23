@@ -26,14 +26,17 @@ struct AddDrinkeView: View {
                         .frame(width: 75, height: 37.5)
                         .foregroundColor(viewmodel.selectedNames.contains(where: { user in
                             user.id == elem.id
-                        }) ? .teal : Color(uiColor: .systemGray4))
+                        }) ? .teal : .white)
                         .overlay(
                             
-                             
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(viewmodel.selectedNamesContain(elem: elem) ? .blue : .gray, lineWidth: 3)
-//                                .brightness(
+                            ZStack {
+                                Text(elem.name)
+                                    .foregroundColor(viewmodel.selectedNamesContain(elem: elem) ? .white : Color(uiColor: .systemGray3))
+                                    .bold()
                             
+                            RoundedRectangle(cornerRadius: 10)
+                                    .stroke(viewmodel.selectedNamesContain(elem: elem) ? Color("DarkTeal") : Color(uiColor: .systemGray3), lineWidth: 3)
+                            }
                         )
                         .onTapGesture {
                             viewmodel.toggleSelectionElement(selectable: elem)

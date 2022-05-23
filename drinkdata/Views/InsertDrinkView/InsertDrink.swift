@@ -51,7 +51,7 @@ struct InsertDrink: View {
                         .overlay(content: {
                             RoundedRectangle(cornerRadius: 15)
     
-                                .stroke(Color.blue, lineWidth: viewmodel.selectedDrink == elem ? 5 : 0)
+                                .stroke(Color("DarkTeal"), lineWidth: viewmodel.selectedDrink == elem ? 5 : 0)
                             
                         })
                         .onTapGesture {
@@ -91,32 +91,55 @@ struct InsertDrink: View {
                 .frame(height: 50)
                 .padding([.bottom,.top], 10)
                 
-            HStack (alignment: .center){
+            HStack {
 //                Spacer()
+                Button {
+                    
+                } label: {
+                    HStack {
+                        Text("Alle trinken")
+//                            .bold()
+                        Image(systemName: "person.3")
+                    }
+                    .font(Font.title3.weight(.bold))
+                    .foregroundColor(.teal)
+                    .minimumScaleFactor(0.9)
+
+                }
+                .padding(25)
+                .frame( height: 50)
+                .background(.white)
+
+                .cornerRadius(12)
+                .disabled(viewmodel.selectedNames.isEmpty)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.teal, lineWidth: 3)
+                }
+    
+
                 Button {
                     viewmodel.sendDrink()
                 } label: {
                     HStack {
                         Text("Prost")
                             .foregroundColor(.white)
-                            .font(.title2)
                         Image(systemName: "drop")
                             .foregroundColor(.white)
                     }
-                  
+                    .font(Font.title2.weight(.bold))
                 }
               
                 .padding(25)
                 .frame(width: 150, height: 50)
                 .background(viewmodel.selectedNames.isEmpty ? Color(uiColor: UIColor.systemGray4) : Color.teal)
-                
                 .cornerRadius(12)
                 .disabled(viewmodel.selectedNames.isEmpty)
        
 
-                Spacer()
+                
             }
-            .padding()
+//            .padding()
         }
 //        .background(Color(UIColor.systemGray5))
         
@@ -124,6 +147,7 @@ struct InsertDrink: View {
         }
     }
 }
+
 
 struct InsertDrink_Previews: PreviewProvider {
     static var previews: some View {
