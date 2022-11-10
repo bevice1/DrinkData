@@ -20,6 +20,6 @@ struct DrinkView: View {
 
 struct DrinkView_Previews: PreviewProvider {
     static var previews: some View {
-        DrinkView(drinkType: .beer)
+        DrinkView(drinkType: .kaffee1)
     }
 }

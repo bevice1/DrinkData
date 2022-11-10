@@ -12,36 +12,12 @@ struct InsertDrink: View {
     @ObservedObject var viewmodel = InsertDrinkViewModel()
     
     let title = "Select your drinker"
-    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    let columns = [GridItem(.fixed(150), spacing: 16), GridItem(.fixed(150), spacing: 16)]
     var body: some View {
         ZStack {
-            
-//            Color(UIColor.systemGray5)
-//                .ignoresSafeArea()
         VStack (alignment: .leading) {
-//            InlinePicker(title: title, allowMultiselection: true, data: viewmodel.data, selected: $viewmodel.selectedNames) { elem, checked in
-//                HStack(spacing: 16) {
-//                    Text(elem.name)
-//                    Spacer()
-//                    if checked {
-//                        Image(systemName: "checkmark")
-//                    }
-//                }
-//                .foregroundColor(.black)
-//
-//            }
-//            .modifier(FilledStyle())
-//            .foregroundColor(Color(UIColor.secondarySystemFill))
-//
-//            HStack {
-//                Spacer()
-//                Text("Select your drink")
-//                Spacer()
-//            }
-           
-//            Divider()
             ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: columns, spacing: 10) {
+                LazyVGrid(columns: columns, spacing: 16) {
                    
                 ForEach(DrinkEnum.allCases) { elem in
                     DrinkView(drinkType: elem )
@@ -62,7 +38,7 @@ struct InsertDrink: View {
                 }
                 .padding([.top,.bottom], 5)
             }
-            .padding()
+//            .padding()
 //            .background {
 //
 //
@@ -86,36 +62,38 @@ struct InsertDrink: View {
                 }
                 .pickerStyle(.segmented)
             }
+            .padding(.bottom, 10)
             
-            AddDrinkeView(viewmodel: viewmodel)
-                .frame(height: 50)
-                .padding([.bottom,.top], 10)
+//            AddDrinkeView(viewmodel: viewmodel)
+//                .frame(height: 50)
+//                .padding([.bottom,.top], 10)
+//            Spacer()
                 
             HStack {
-//                Spacer()
-                Button {
-                    
-                } label: {
-                    HStack {
-                        Text("Alle trinken")
-//                            .bold()
-                        Image(systemName: "person.3")
-                    }
-                    .font(Font.title3.weight(.bold))
-                    .foregroundColor(.teal)
-                    .minimumScaleFactor(0.9)
-
-                }
-                .padding(25)
-                .frame( height: 50)
-                .background(.white)
-
-                .cornerRadius(12)
-                .disabled(viewmodel.selectedNames.isEmpty)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.teal, lineWidth: 3)
-                }
+                Spacer()
+//                Button {
+//
+//                } label: {
+//                    HStack {
+//                        Text("Alle trinken")
+////                            .bold()
+//                        Image(systemName: "person.3")
+//                    }
+//                    .font(Font.title3.weight(.bold))
+//                    .foregroundColor(.teal)
+//                    .minimumScaleFactor(0.9)
+//
+//                }
+//                .padding(25)
+//                .frame( height: 50)
+//                .background(.white)
+//
+//                .cornerRadius(10)
+//                .disabled(viewmodel.selectedNames.isEmpty)
+//                .overlay {
+//                    RoundedRectangle(cornerRadius: 12)
+//                        .stroke(Color.teal, lineWidth: 3)
+//                }
     
 
                 Button {
@@ -137,7 +115,7 @@ struct InsertDrink: View {
                 .disabled(viewmodel.selectedNames.isEmpty)
        
 
-                
+                Spacer()
             }
 //            .padding()
         }

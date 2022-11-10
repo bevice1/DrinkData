@@ -14,24 +14,24 @@ enum DrinkEnum: CaseIterable, Identifiable, CustomStringConvertible {
     }
     var preferedVolume: VolumeEnum {
         switch self {
-        case .beer:
+        case .kaffee1:
             return VolumeEnum.large
-        case .wine:
+        case .kaffee2:
             return VolumeEnum.small
-        case .cocktail:
+        case .kaffee3:
             return VolumeEnum.small
-        case .shot:
-            return VolumeEnum.shot
-        case .trichter:
+        case .kaffee4:
+            return VolumeEnum.kaffee4
+        case .kaffee5:
             return VolumeEnum.large
         }
     }
     
-    case beer
-    case wine
-    case cocktail
-    case shot
-    case trichter
+    case kaffee1
+    case kaffee2
+    case kaffee3
+    case kaffee4
+    case kaffee5
     
     var id: DrinkEnum {
         self
@@ -39,11 +39,11 @@ enum DrinkEnum: CaseIterable, Identifiable, CustomStringConvertible {
     
     var literal: String {
         switch self {
-        case .beer: return "Bier"
-        case .wine: return "Wein"
-        case .cocktail: return "Cocktail"
-        case .shot: return "Shot"
-        case .trichter: return "Trichter"
+        case .kaffee1: return "kaffee1"
+        case .kaffee2: return "kaffee2"
+        case .kaffee3: return "kaffee3"
+        case .kaffee4: return "kaffee4"
+        case .kaffee5: return "kaffee5"
         }
     }
 }
@@ -51,7 +51,7 @@ enum DrinkEnum: CaseIterable, Identifiable, CustomStringConvertible {
 
 enum VolumeEnum: CaseIterable, Identifiable {
 
-    case shot
+    case kaffee4
     case small
     case large
 
@@ -62,29 +62,29 @@ enum VolumeEnum: CaseIterable, Identifiable {
     
     func getLiteral(elem: DrinkEnum) -> String {
         switch self {
-        case .shot:
+        case .kaffee4:
             switch elem {
-            case .beer: return "200ml"
-            case .wine: return "200ml"
-            case .cocktail: return "200ml"
-            case .shot: return "20ml"
-            case .trichter: return "500ml"
+            case .kaffee1: return "200ml"
+            case .kaffee2: return "200ml"
+            case .kaffee3: return "200ml"
+            case .kaffee4: return "20ml"
+            case .kaffee5: return "500ml"
             }
         case .small:
             switch elem {
-            case .beer: return "330ml"
-            case .wine: return "330ml"
-            case .cocktail: return "330ml"
-            case .shot: return "40ml"
-            case .trichter: return "500ml"
+            case .kaffee1: return "330ml"
+            case .kaffee2: return "330ml"
+            case .kaffee3: return "330ml"
+            case .kaffee4: return "40ml"
+            case .kaffee5: return "500ml"
             }
         case .large:
             switch elem {
-            case .beer: return "500ml"
-            case .wine: return "Megapint"
-            case .cocktail: return "500ml"
-            case .shot: return "60ml"
-            case .trichter: return "1L"
+            case .kaffee1: return "500ml"
+            case .kaffee2: return "Megapint"
+            case .kaffee3: return "500ml"
+            case .kaffee4: return "60ml"
+            case .kaffee5: return "1L"
             }
         }
     }

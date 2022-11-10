@@ -16,9 +16,8 @@ struct Participants {
 class InsertDrinkViewModel: ObservableObject {
     //TODO: Hier müssen noch default werde von API geholt und gespeichert werden
     @Published var selectedNames: [User] = [User(name: "Bene", id: 1)]
-    @Published var selectedDrink: DrinkEnum = .beer {
+    @Published var selectedDrink: DrinkEnum = .kaffee1 {
         didSet {
-//            availableVolumes =
             selectedVolume = self.selectedDrink.preferedVolume
         }
     }
@@ -29,6 +28,7 @@ class InsertDrinkViewModel: ObservableObject {
     func sendDrink() {
         selectedNames.forEach { name in
 //            apicall. send(selectedDrink, selectedVolume)
+            
         }
     }
     
