@@ -14,6 +14,6 @@ class ProfileViewModel: ObservableObject {
     
     init () {
         let user = User(name: "Bene", id: 1)
-        profil = Profile(name: user, drinks: [Drink(user: user, drink: .kaffee1, amount: .large, timestamp: NSDate().timeIntervalSince1970)])
+        profil = Profile(name: user, drinks: [Drink(drink: .kaffee1, amount: .large, timestamp: NSDate.now)])
     }
 }

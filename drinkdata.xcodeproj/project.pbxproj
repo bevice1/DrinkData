@@ -27,6 +27,9 @@
 		403FF1A7283295E400245A93 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403FF1A6283295E400245A93 /* Drink.swift */; };
 		403FF1A92832A0FA00245A93 /* DrinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403FF1A82832A0FA00245A93 /* DrinkView.swift */; };
 		40A34FAF283797E0005DF48A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A34FAE283797E0005DF48A /* Profile.swift */; };
+		40AF48A0291D2A0400499F40 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF489F291D2A0400499F40 /* RoundedCorner.swift */; };
+		40AF48A4291D2D0700499F40 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF48A3291D2D0700499F40 /* StatusView.swift */; };
+		40FD3F62293F74D300C68EA6 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD3F61293F74D300C68EA6 /* NameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		403FF1A6283295E400245A93 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		403FF1A82832A0FA00245A93 /* DrinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkView.swift; sourceTree = "<group>"; };
 		40A34FAE283797E0005DF48A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		40AF489F291D2A0400499F40 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		40AF48A3291D2D0700499F40 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		40FD3F61293F74D300C68EA6 /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 		4032812F2830063400E39A7A /* drinkdata */ = {
 			isa = PBXGroup;
 			children = (
+				40AF489E291D29F300499F40 /* Helper */,
 				403281672831511600E39A7A /* Models */,
 				4032814B2831426500E39A7A /* Views */,
 				403281482831419600E39A7A /* Persistance */,
@@ -146,6 +153,7 @@
 				4032814F283142EB00E39A7A /* InsertDrinkViewModel.swift */,
 				403FF1A82832A0FA00245A93 /* DrinkView.swift */,
 				4027FFCB283ABAF500CB3788 /* AddDrinkeView.swift */,
+				40AF48A3291D2D0700499F40 /* StatusView.swift */,
 			);
 			path = InsertDrinkView;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 			children = (
 				40328153283147AD00E39A7A /* ProfileViewModel.swift */,
 				40328155283147B500E39A7A /* ProfileView.swift */,
+				40FD3F61293F74D300C68EA6 /* NameView.swift */,
 			);
 			path = ProfileVIew;
 			sourceTree = "<group>";
@@ -193,6 +202,14 @@
 				40A34FAE283797E0005DF48A /* Profile.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		40AF489E291D29F300499F40 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				40AF489F291D2A0400499F40 /* RoundedCorner.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,15 +291,18 @@
 			files = (
 				40328156283147B500E39A7A /* ProfileView.swift in Sources */,
 				40A34FAF283797E0005DF48A /* Profile.swift in Sources */,
+				40AF48A4291D2D0700499F40 /* StatusView.swift in Sources */,
 				4032816528314D0D00E39A7A /* MultiSelectPicker.swift in Sources */,
 				4032814428302C3A00E39A7A /* drinkAPI.swift in Sources */,
 				403281332830063400E39A7A /* ContentView.swift in Sources */,
 				40328150283142EB00E39A7A /* InsertDrinkViewModel.swift in Sources */,
 				403FF1A92832A0FA00245A93 /* DrinkView.swift in Sources */,
 				4032814A283141A500E39A7A /* UserRepository.swift in Sources */,
+				40AF48A0291D2A0400499F40 /* RoundedCorner.swift in Sources */,
 				403281312830063400E39A7A /* drinkdataApp.swift in Sources */,
 				403FF1A7283295E400245A93 /* Drink.swift in Sources */,
 				4032816428314D0D00E39A7A /* InlinePicker.swift in Sources */,
+				40FD3F62293F74D300C68EA6 /* NameView.swift in Sources */,
 				403281692831512100E39A7A /* User.swift in Sources */,
 				4032814E283142C800E39A7A /* InsertDrink.swift in Sources */,
 				40328154283147AD00E39A7A /* ProfileViewModel.swift in Sources */,
@@ -425,6 +445,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +476,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

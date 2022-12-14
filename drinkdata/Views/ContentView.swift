@@ -9,68 +9,42 @@ import SwiftUI
 
 struct ContentView: View {
     @State var endPoint: DrinkAPI = DrinkAPI()
+    @ObservedObject var vm: InsertDrinkViewModel = InsertDrinkViewModel()
     @State var showProfileScreen = false {
         didSet {
             print("pressed")
         }
     }
+    init(endPoint: DrinkAPI = DrinkAPI(), showProfileScreen: Bool = false) {
+        self.endPoint = endPoint
+        self.showProfileScreen = showProfileScreen
+        
+        UITabBar.appearance().backgroundColor = UIColor(Color("Tabbar"))
+        UITabBar.appearance().unselectedItemTintColor = .systemGray3
+    }
+    
     var body: some View {
         
-        NavigationView {
-            
-            InsertDrink()
+        TabView {
+            InsertDrink(viewmodel: vm)
                 .tabItem {
                     Image(systemName: "hammer.circle")
                     Text("Drink")
                 }
-                .accentColor(.black)
+                .accentColor(.white)
                 .navigationTitle("Drinks")
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-              
-                   
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Image(systemName: "magnifyingglass")
-                            .padding(.leading, 25)
-                    }
-                    
-
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        //                        Text("test")
-                        Image(systemName: "person.fill")
-                            .foregroundColor(.white)
-                            .onTapGesture {
-                                showProfileScreen.toggle()
-                            }
-                            .padding(4)
-
-                            .background(Color(uiColor: .systemTeal))
-                            .mask {
-                               Circle()
-                            }
-                            .padding(.trailing, 25)
-                    }
-//
-                    
-                    
+            
+            
+            
+            ProfileView(vm: vm)
+                .tabItem {
+                    Image(systemName: "person.fill")
+                        .tint(.white)
+                    Text("Drink")
                 }
-            
-            
-            NavigationLink("Profile Screen", isActive: $showProfileScreen) {
-                ProfileView()
-            }
-            //                    .background(.black)
         }
-//        .navigationViewStyle(StackNavigationViewStyle())
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        .tint(Color("Accent"))
     }
     
 }

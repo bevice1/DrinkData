@@ -15,7 +15,7 @@ enum DrinkEnum: CaseIterable, Identifiable, CustomStringConvertible {
     var preferedVolume: VolumeEnum {
         switch self {
         case .kaffee1:
-            return VolumeEnum.large
+            return VolumeEnum.kaffee4
         case .kaffee2:
             return VolumeEnum.small
         case .kaffee3:
@@ -32,6 +32,7 @@ enum DrinkEnum: CaseIterable, Identifiable, CustomStringConvertible {
     case kaffee3
     case kaffee4
     case kaffee5
+//    case add
     
     var id: DrinkEnum {
         self
@@ -44,6 +45,7 @@ enum DrinkEnum: CaseIterable, Identifiable, CustomStringConvertible {
         case .kaffee3: return "kaffee3"
         case .kaffee4: return "kaffee4"
         case .kaffee5: return "kaffee5"
+//        case .add: return "add"
         }
     }
 }
@@ -64,25 +66,25 @@ enum VolumeEnum: CaseIterable, Identifiable {
         switch self {
         case .kaffee4:
             switch elem {
-            case .kaffee1: return "200ml"
-            case .kaffee2: return "200ml"
-            case .kaffee3: return "200ml"
+            case .kaffee1: return "20ml"
+            case .kaffee2: return "20ml"
+            case .kaffee3: return "20ml"
             case .kaffee4: return "20ml"
-            case .kaffee5: return "500ml"
+            case .kaffee5: return "20ml"
             }
         case .small:
             switch elem {
-            case .kaffee1: return "330ml"
-            case .kaffee2: return "330ml"
-            case .kaffee3: return "330ml"
-            case .kaffee4: return "40ml"
-            case .kaffee5: return "500ml"
+            case .kaffee1: return "125ml"
+            case .kaffee2: return "125ml"
+            case .kaffee3: return "125ml"
+            case .kaffee4: return "125ml"
+            case .kaffee5: return "125ml"
             }
         case .large:
             switch elem {
-            case .kaffee1: return "500ml"
-            case .kaffee2: return "Megapint"
-            case .kaffee3: return "500ml"
+            case .kaffee1: return "250ml"
+            case .kaffee2: return "250ml"
+            case .kaffee3: return "250ml"
             case .kaffee4: return "60ml"
             case .kaffee5: return "1L"
             }
@@ -92,9 +94,9 @@ enum VolumeEnum: CaseIterable, Identifiable {
 
 struct Drink {
     
-    let user: User
+    //let user: User
     let drink: DrinkEnum
     let amount: VolumeEnum
-    let timestamp: Double
+    let timestamp: Date
     
 }
